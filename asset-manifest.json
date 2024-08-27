@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/trendytoe/static/css/main.4f121ed8.css",
-    "main.js": "/trendytoe/static/js/main.dc975204.js",
+    "main.css": "/trendytoe/static/css/main.319e2a22.css",
+    "main.js": "/trendytoe/static/js/main.066592b9.js",
     "static/js/453.b7d77973.chunk.js": "/trendytoe/static/js/453.b7d77973.chunk.js",
     "static/media/slick.svg": "/trendytoe/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/trendytoe/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "/trendytoe/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/trendytoe/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/trendytoe/index.html",
-    "main.4f121ed8.css.map": "/trendytoe/static/css/main.4f121ed8.css.map",
-    "main.dc975204.js.map": "/trendytoe/static/js/main.dc975204.js.map",
+    "main.319e2a22.css.map": "/trendytoe/static/css/main.319e2a22.css.map",
+    "main.066592b9.js.map": "/trendytoe/static/js/main.066592b9.js.map",
     "453.b7d77973.chunk.js.map": "/trendytoe/static/js/453.b7d77973.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4f121ed8.css",
-    "static/js/main.dc975204.js"
+    "static/css/main.319e2a22.css",
+    "static/js/main.066592b9.js"
   ]
 }
