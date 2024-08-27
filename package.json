@@ -43,5 +43,6 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.4.10"
-  }
+  },
+  "homepage": "https://mardav017.github.io/trendytoe/"
 }
