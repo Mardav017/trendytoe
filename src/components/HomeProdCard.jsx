@@ -2,7 +2,7 @@ const HomeProdCard = ({ shoes_arr }) => {
   return (
     <div className='grid grid-cols-4 ml-20 my-5'>
       {Object.keys(shoes_arr).map(shoe => (
-        <a href="trendytoe/#/Men" className='border h-80 w-52 rounded-lg shadow-lg' key={shoe}>
+        <a href="/#/Men" className='border h-80 w-52 rounded-lg shadow-lg' key={shoe}>
           <div
             className='bg-gray-500 h-52 rounded-lg'
             style={{
