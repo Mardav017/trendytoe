@@ -13,7 +13,7 @@ const CategoryProdCard = props => {
   return (
     <div className='flex flex-wrap gap-10 p-6 ml-0 mr-5 justify-start'>
       {props.prod.map((product, index) => (
-        <div
+        <a href={`/trendytoe#/product/${product.id}`}
           className={`border h-80 w-52 product-card ${
             index === hoveredProduct ? 'hovered' : ''
           }`}
@@ -34,15 +34,7 @@ const CategoryProdCard = props => {
           <h1 className='px-1 font-semibold text-sm'>{product.brand}</h1>
           <h2 className='px-1 text-xs'>{product.name}</h2>
           <h2 className='px-1 text-xs'>Rs. {product.price}</h2>
-          {index === hoveredProduct && (
-            <button
-              className='cart'
-              onClick={() => props.handleAddToCart(product)}
-            >
-              Add to Cart
-            </button>
-          )}
-        </div>
+        </a>
       ))}
     </div>
   )

@@ -3,25 +3,39 @@ import React from 'react'
 const Cart = ({ cart, setCart }) => {
   let total = 0
 
-  const handleDelete = id => {
-    let cartValue = cart.filter(items => items.id != id)
+  const handleDelete = (id, size) => {
+    let cartValue = cart.filter(items => items.id != id || items.size != size)
     setCart(cartValue)
   }
-  // const handleIncrement = id => {
-  //   const tempCart = cart.map((items)=>{
-      
-  //   });
-  //   console.log(existingProductIndex)
-  // }
 
-  // const handleDecrement = id => {
-  //   const existingProductIndex = cart.findIndex(item => item.id == id)
-  //   console.log(existingProductIndex)
-    
-  // }
+  const handleIncrement = (id, size) => {
+    const index = cart.findIndex(item => {
+      return item.id === id && item.size === size
+    })
+    if (index > -1) {
+      const tempCart = [...cart]
+      if (tempCart[index].qty < 5) {
+        tempCart[index].qty++
+        setCart(tempCart)
+      }
+    }
+  }
+
+  const handleDecrement = (id, size) => {
+    const index = cart.findIndex(item => {
+      return item.id === id && item.size === size
+    })
+    if (index > -1) {
+      const tempCart = [...cart]
+      if (tempCart[index].qty > 1) {
+        tempCart[index].qty--
+        setCart(tempCart)
+      }
+    }
+  }
 
   return (
-    <div>
+    <div className='min-h-screen'>
       <div className='w-full h-32 p-10 mb-3 bg-amber-100'>
         <h3 className='text-4xl'>Your Cart</h3>
       </div>
@@ -42,6 +56,7 @@ const Cart = ({ cart, setCart }) => {
             <section>
               <h1 className='px-1 font-semibold text-2xl'>{product.brand}</h1>
               <h2 className='px-1 text-xl'>{product.name}</h2>
+              <h2 className='px-1 text-lg'>Size: {product.size}</h2>
               <h2 className='px-1 text-lg mt-10'>
                 Rs. {product.price * product.qty}
               </h2>
@@ -50,17 +65,29 @@ const Cart = ({ cart, setCart }) => {
                 Qty :
                 <section className='flex'>
                   <input
-                    type='text'
-                    className='bg-gray-200 p-px w-6'
+                    type='number'
+                    className='bg-gray-200 p-px w-10'
                     value={product.qty}
+                    min={1}
                     disabled
                   />
-                  <button type='button'>
+                  <button
+                    type='button'
+                    onClick={() => {
+                      handleIncrement(product.id, product.size)
+                    }}
+                  >
                     <span className='material-symbols-outlined'>
                       arrow_upward
                     </span>
                   </button>
-                  <button type='button'>
+
+                  <button
+                    type='button'
+                    onClick={() => {
+                      handleDecrement(product.id, product.size)
+                    }}
+                  >
                     <span className='material-symbols-outlined'>
                       arrow_downward
                     </span>
@@ -71,7 +98,7 @@ const Cart = ({ cart, setCart }) => {
             <button
               type='button'
               onClick={() => {
-                handleDelete(product.id)
+                handleDelete(product.id, product.size)
               }}
             >
               <span className='material-symbols-outlined'>delete</span>
@@ -80,18 +107,22 @@ const Cart = ({ cart, setCart }) => {
         </div>
       ))}
 
-      <div className='border mt-10 w-full h-14 flex justify-end'>
-        <h1 className='text-lg mx-16'>Total: Rs. {total}</h1>
-        <button
-          className='bg-slate-500 p-2 mt-2 mr-14'
-          onClick={() => {
-            alert('Order Placed')
-            window.location.reload()
-          }}
-        >
-          Place Order
-        </button>
-      </div>
+      {cart.length > 0 ? (
+        <div className='border mt-10 w-full h-14 flex justify-end'>
+          <h1 className='text-lg mx-16'>Total: Rs. {total}</h1>
+          <button
+            className='bg-slate-500 p-2 mt-2 mr-14'
+            onClick={() => {
+              alert('Order Placed')
+              setCart([])
+            }}
+          >
+            Place Order
+          </button>
+        </div>
+      ) : (
+        'Cart is Empty'
+      )}
     </div>
   )
 }

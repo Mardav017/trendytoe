@@ -79,7 +79,7 @@ const Men = props => {
         />
 
         {/* Display Products */}
-        <CategoryProdCard prod={prod} handleAddToCart={props.handleAddToCart} />
+        <CategoryProdCard prod={prod} />
       </section>
     </div>
   )
