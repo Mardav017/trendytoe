@@ -7,18 +7,18 @@ const Cart = ({ cart, setCart }) => {
     let cartValue = cart.filter(items => items.id != id)
     setCart(cartValue)
   }
-  const handleIncrement = id => {
-    const tempCart = cart.map((items)=>{
+  // const handleIncrement = id => {
+  //   const tempCart = cart.map((items)=>{
       
-    });
-    console.log(existingProductIndex)
-  }
+  //   });
+  //   console.log(existingProductIndex)
+  // }
 
-  const handleDecrement = id => {
-    const existingProductIndex = cart.findIndex(item => item.id == id)
-    console.log(existingProductIndex)
+  // const handleDecrement = id => {
+  //   const existingProductIndex = cart.findIndex(item => item.id == id)
+  //   console.log(existingProductIndex)
     
-  }
+  // }
 
   return (
     <div>
